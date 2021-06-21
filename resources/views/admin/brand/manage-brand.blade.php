@@ -50,14 +50,11 @@
                                                     <tr>
                                                         <td>{{$i}}</td>
                                                         <td>{{$brand->brand_name}}</td>
-                                                        <td>{{$brand->status ==1 ? 'Active':'Inactive'}}</td>
                                                         <td>
-                                                            @if ($brand->status==1)
-                                                            <a href="{{route('inactive-brand',$brand->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-arrow-down"></i></a>
-                                                            @else
-                                                            <a href="{{route('active-brand',$brand->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-arrow-up"></i></a>
-                                                            @endif
-                                                            <a href="" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
+                                                            <input type="checkbox" data-size="mini" data-toggle="toggle" data-on="Active" data-off="Inactive" data-id="{{$brand->id}}" id="brandStatus" {{$brand->status ==1 ? 'checked':''}}>
+                                                        </td>
+                                                        <td>
+                                                            <a href="{{route('edit-brand',$brand->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-pencil"></i></a>
                                                             <a href="{{route('delete-brand',$brand->id)}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
                                                         </td>
                                                     </tr>

@@ -30,8 +30,9 @@ Route::prefix('/dashboard')->middleware('auth')->group(function () {
         Route::get('/add-brand',[BrandController::class,'add_brand'])->name('add-brand');
         Route::post('/save-brand',[BrandController::class,'save_brand'])->name('save-brand');
         Route::get('/manage-brand',[BrandController::class,'manage_brand'])->name('manage-brand');
-        Route::get('/active-brand/{id}',[BrandController::class,'active_brand'])->name('active-brand');
-        Route::get('/inactive-brand/{id}',[BrandController::class,'inactive_brand'])->name('inactive-brand');
         Route::get('/delete-brand/{id}',[BrandController::class,'delete_brand'])->name('delete-brand');
+        Route::get('/edit-brand/{id}',[BrandController::class,'edit_brand'])->name('edit-brand');
+        Route::post('/update-brand/{id}',[BrandController::class,'update_brand'])->name('update-brand');
+        Route::get('/brandStatus/{id}/{s}',[BrandController::class,'brandStatus'])->name('brandStatus');
     });
 });

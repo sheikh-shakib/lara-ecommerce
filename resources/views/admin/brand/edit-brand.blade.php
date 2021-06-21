@@ -9,7 +9,7 @@
                 <ul class="breadcrumbs">
                     <li><i class="fa fa-home" aria-hidden="true"></i><a href="{{route('dashboard')}}">Dashboard</a></li>
                     <li><a href="javascript:avoid(0)">Brand</a></li>
-                    <li><a href="javascript:avoid(0)">Add-Brand</a></li>
+                    <li><a href="javascript:avoid(0)">Update-Brand</a></li>
                 </ul>
             </div>
         </div>
@@ -22,23 +22,20 @@
                         <div class="panel-content">
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <h4>Brand Add Form</h4>
+                                    <h4>Brand Update Form</h4>
                                 </div>
                                 <div class="col-xs-6 text-right">
-                                    <a href="{{route('manage-brand')}}" class="btn btn-primary">Manage Brand</a>
+                                    <a href="{{route('manage-brand',$brand->id)}}" class="btn btn-primary">Manage Brand</a>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="form-horizontal" id="commentForm" action="{{route('save-brand')}}" method="POST">
+                                    <form class="form-horizontal" action="{{route('update-brand',$brand->id)}}" method="POST">
                                         @csrf
                                         <div class="form-group">
                                             <label for="brand_name" class="col-sm-2 control-label">Brand Name</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="brand_name" id="brand_name" value="{{old('brand_name')}}" placeholder="Brand Name" required>
-                                                @error('brand_name')
-                                                <strong class="danger">{{$message}}</strong>
-                                                @enderror
+                                                <input type="text" class="form-control" name="brand_name" id="brand_name" value="{{$brand->brand_name}}" placeholder="Brand Name">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -57,8 +54,4 @@
         <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
     </div>
 @endsection
-@section('script')
-    <script>
-        $("#commentForm").validate();
-    </script>
-@endsection
+

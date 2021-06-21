@@ -29,6 +29,8 @@
     <!--TEMPLATE css-->
     <!-- ========================================================= -->
     <link rel="stylesheet" href="{{asset('assets')}}/admin/stylesheets/css/style.css">
+    {{-- bootstrap-toggle --}}
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
 
 </head>
@@ -301,7 +303,7 @@
                                     <a><i class="fa fa-pie-chart" aria-hidden="true"></i><span>Brands</span> </a>
                                     <ul class="nav child-nav level-1">
                                         <li class="{{request()->is('dashboard/brand/add-brand') ? 'active-item':''}}"><a href="{{route('add-brand')}}">Add Brand</a></li>
-                                        <li class="{{request()->is('dashboard/brand/manage-brand') ? 'active-item':''}}"><a href="{{route('manage-brand')}}">Manage Brand</a></li>
+                                        <li class="{{request()->is('dashboard/brand/manage-brand','dashboard/brand/edit-brand/*') ? 'active-item':''}}"><a href="{{route('manage-brand')}}">Manage Brand</a></li>
                                     </ul>
                                 </li>
 
@@ -320,6 +322,7 @@
     <!--BASIC scripts-->
     <!-- ========================================================= -->
     <script src="{{asset('assets')}}/admin/vendor/jquery/jquery-1.12.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{asset('assets')}}/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="{{asset('assets')}}/admin/vendor/nano-scroller/nano-scroller.js"></script>
     <!--dataTable-->
@@ -327,20 +330,30 @@
     <script src="{{asset('assets')}}/admin/vendor/data-table/media/js/dataTables.bootstrap.min.js"></script>
     <!--Examples-->
     <script src="{{asset('assets')}}/admin/javascripts/examples/tables/data-tables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
     <!--TEMPLATE scripts-->
     <!-- ========================================================= -->
     <script src="{{asset('assets')}}/admin/javascripts/template-script.min.js"></script>
     <script src="{{asset('assets')}}/admin/javascripts/template-init.min.js"></script>
     <!-- SECTION script and examples-->
     <!-- ========================================================= -->
+    {{-- bootstrap-toggle --}}
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    
     <!--Notification msj-->
     <script src="{{asset('assets')}}/admin/vendor/toastr/toastr.min.js"></script>
+    <!--morris chart-->
+    <!--Notification msj-->
     <!--morris chart-->
     <script src="{{asset('assets')}}/admin/vendor/chart-js/chart.min.js"></script>
     <!--Gallery with Magnific popup-->
     <script src="{{asset('assets')}}/admin/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
     <!--Examples-->
     <script src="{{asset('assets')}}/admin/javascripts/examples/dashboard.js"></script>
+    <script src="{{asset('assets')}}/admin/javascripts/examples/scripts.js"></script>
+    @yield('script')
+
 </body>
 
 </html>
